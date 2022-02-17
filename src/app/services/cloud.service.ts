@@ -18,7 +18,7 @@ export class CloudService {
     return this.app.currentUser?.callFunction(funcName,param)
   }
   async search(title:string):Promise<SpotifySong[]> {
-    let res = await this.execute('searchByTitle',title);
+    let res:any = await this.execute('searchByTitle',title);
     return res.map((el:any)=>new SpotifySong(el.id,el.title,el.artist,el.link,el.duration,el.cover,el.album));
   }
   constructor() { 

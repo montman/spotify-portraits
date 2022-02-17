@@ -8,7 +8,7 @@ export class SpotifySong {
     album:string
     loaded:boolean = false;
     parseMoment(factor:number) {
-        let moment = this.duration/factor;
+        let moment = Math.floor(this.duration/factor);
         return Math.floor(moment/60)+':'+(moment%60).toString().padStart(2,'0');
     }
     constrast(hex:string) {

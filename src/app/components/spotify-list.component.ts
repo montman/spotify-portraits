@@ -5,22 +5,19 @@ import { CloudService } from '../services/cloud.service';
 @Component({
   selector: 'spotify-list',
   template: `
-    <div class="rowList" nz-row style="padding: 1rem;">
-        <div nz-col nzFlex="96px">
+    <div class="d-flex mb-1" >
+        <div style="width: 96px;">
         <img
-      nz-image
-      width="96px"
-      height="96px"
-      [nzSrc]="element.cover"
-      alt="">
+      [src]="element.cover"
+      class="img-fluid">
         </div>
-        <div nz-col nzFlex="auto" style="padding-left: 1rem">
-<h5 nz-typography>{{element.title}}    <button (click)="open()" style="float: right;" nz-button nzType="primary" [nzDanger]="element.loaded" nzShape="circle"><i nz-icon [nzType]="element.loaded ? 'close' : 'download'"></i></button>
+        <div class="flex-fill pl-2">
+<h5>{{element.title}}    <button class="btn btn-primary float-right btn-sm" (click)="open()">Open</button>
 </h5>
-<p nz-typography>{{element.artist}}</p>
-<p nz-typography nzType="secondary">{{element.album}}</p>
+<p>{{element.artist}}</p>
+<p class="text-secondary">{{element.album}}</p>
 
-<p nz-typography>{{element.parseDuration()}}</p>
+<p>{{element.parseDuration()}}</p>
         </div>
       </div>
       <generate-portrait [accentColor]="accentColor"  *ngIf="element.loaded" [element]="element"></generate-portrait>
